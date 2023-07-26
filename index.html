@@ -15,16 +15,36 @@
     <button type="submit">Submit</button>
   </form>
 
-  <div id="resultContainer" >
+
+
+
+  <div id="resultContainer">
     <h2>Result:</h2>
     <h2 id="result"></h2>
+    <div id="subjectDetailsContainer">
+      <h3>Subject Details:</h3>
+      <table id="subjectDetailsTable">
+        <thead>
+          <tr>
+            <th>Subject Name</th>
+            <th>Internals</th>
+            <th>Grade</th>
+           
+          </tr>
+        </thead>
+        <tbody id="subjectDetailsList"></tbody>
+      </table>
+    </div>
   </div>
+
+  
 
   <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('rollNumberForm').addEventListener('submit', async (event) => {
       event.preventDefault();
-      const rollNumber = document.getElementById('rollNumber').value;
+      const roll = document.getElementById('rollNumber').value;
+      const rollNumber = roll.toUpperCase();
 
       // The data is stored in an array of objects
 
@@ -38571,8 +38591,7 @@
       }
     ];
     
-    
-    
+     
     
     
 
@@ -38587,12 +38606,52 @@
         document.getElementById('resultContainer').style.display = 'block';
         return;
       }
+          
+         // Function to display the subject details along with GPA
+ // Function to display the subject details along with GPA
+ function displaySubjectDetails(student) {
+  const subjectDetailsTable = document.getElementById('subjectDetailsTable');
+  const subjectDetailsList = document.getElementById('subjectDetailsList');
+  subjectDetailsList.innerHTML = '';
+
+  for (const subject of student.subjects) {
+    const subname = subject.subname;
+    const internals = subject.internals;
+    const grade = subject.grade;
+    const credits = subject.credits;
+    
+
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${subname}</td><td>${internals}</td><td>${grade}</td>`;
+    subjectDetailsList.appendChild(row);
+  }
+  console.log('The student object passed to the displaySubjectDetails() function is: ', student);
+
+}
+
+
+
+
+
+ 
+
 
       // Calculate the result for the found student
       const result = await calculateResult(student);
 
-      // Display the result
-      document.getElementById('result').textContent = `Result for Roll Number ${rollNumber}: ${result.toFixed(2)}`;
+
+       // Display the result
+       if (result === "Failed") {
+        document.getElementById('result').textContent = `Result for Roll Number ${rollNumber}: Failed`;
+        displaySubjectDetails(student); 
+      } else {
+        document.getElementById('result').textContent = `Result for Roll Number ${rollNumber}: ${result.toFixed(2)}`;
+        displaySubjectDetails(student); 
+      }
+ 
+
+       
+      
       document.getElementById('resultContainer').style.display = 'block';
     });
 
@@ -38601,6 +38660,7 @@
       // ... (your calculation logic here)
       let totalCredits = 0;
       let totalWeightedGrade = 0;
+      let hasFailed = false;
     
       for (const subject of student.subjects) {
         const grade = subject.grade;
@@ -38626,12 +38686,24 @@
           case 'E':
             gradeValue = 5;
             break;
+          case 'F':
+            gradeValue = 0;
+            hasFailed = true;
+            break;
           default:
             gradeValue = 0;
         }
-    
+        if (!hasFailed) {
         totalCredits += credits;
         totalWeightedGrade += gradeValue * credits;
+        }
+        if (hasFailed) {
+          return "Failed"; // If the student has failed in any subject, return "Failed"
+        }
+
+      }
+      if (totalCredits === 0) {
+        return 0; // To avoid division by zero if there are no passed subjects
       }
     
       const result = totalWeightedGrade / totalCredits;
