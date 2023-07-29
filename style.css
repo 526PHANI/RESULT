@@ -1,0 +1,115 @@
+
+
+
+
+
+
+
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  form {
+    margin: 20px 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #resultContainer {
+    display: none;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #resultContainer h2 {
+    color: #333;
+  }
+  
+  #subjectDetailsTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  #subjectDetailsTable th,
+  #subjectDetailsTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #subjectDetailsTable th {
+    background-color: #f2f2f2;
+  }
+  
+  #subjectDetailsList tr:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    form {
+      padding: 10px;
+    }
+  
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      padding: 8px 15px;
+    }
+  
+    #resultContainer {
+      padding: 10px;
+    }
+  
+    #subjectDetailsTable th,
+    #subjectDetailsTable td {
+      padding: 10px;
+    }
+  }
+  
