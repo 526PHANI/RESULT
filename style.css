@@ -5,7 +5,10 @@
 
 
 
-
+#result {
+  color: blue; /* Change the color to your desired color */
+  font-size: 16px; /* You can adjust the font size if needed */
+}
 
   body {
     font-family: Arial, sans-serif;
@@ -13,16 +16,77 @@
     background-color: #f9f9f9;
   }
   
+
+/* Add a CSS class to hide the report card message initially */
+.hidden {
+  display: none;
+}
+#reportCardMessage {
+  font-size: 32px; /* Change this value to adjust the font size as desired */
+  /* You can also use other units like 'em', 'rem', 'pt', 'vw', 'vh', etc. */
+  font-weight: bold;
+  color: #2e65d2;
+  text-align: center;
+}
+  
   h1 {
-    color: #333;
+    color: #2e65d2;
+    text-align: center;
   }
+  
+
+
+
+  h1 {
+    color: #2e65d2;
+  }
+  table#gradeTable {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid #2e65d2;
+  }
+  table#gradeTable th, table#gradeTable td {
+    border: 1px solid #2e65d2;
+    padding: 8px;
+    text-align: center;
+  }
+  table#gradeTable th {
+    background-color: #f2f2f2;
+    color: #2e65d2;
+    font-weight: bold;
+  }
+  table#gradeTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  table#gradeTable tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+
+  input[type="text"]::placeholder {
+    /* Change the font family for the placeholder text */
+    font-family:  Arial, Helvetica, sans-serif;
+}
+  select {
+    width: 95%; /* Set the width of the selection box */
+    height: 40px; /* Set the height of the selection box */
+    font-size: 16px; /* Set the font size of the drop-down text */
+    border: 1px solid #2e65d2;
+    border-radius: 10px;
+  }
+    
   
   form {
     margin: 20px 0;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 7px 9px rgba(0, 0, 0, 0.1);
+    margin-left: 35%;
+    margin-right: 35%;
+    border : 1px solid #2e65d2;
   }
   
   label {
@@ -34,18 +98,20 @@
   input[type="number"] {
     padding: 10px;
     margin-bottom: 15px;
-    width: 100%;
-    border: 1px solid #ccc;
+    width: 90%;
+    border: 1px solid #2e65d2;
     border-radius: 5px;
   }
   
   button {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #2e65d2;
     color: #FFF;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
   }
   
   button:hover {
@@ -57,8 +123,9 @@
     margin-top: 20px;
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+   
+    box-shadow: 0 7px 9px rgba(0, 0, 0, 0.1);
   }
   
   #resultContainer h2 {
@@ -67,7 +134,7 @@
   
   #subjectDetailsTable {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     margin-top: 20px;
   }
   
@@ -76,15 +143,21 @@
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    margin: 3px;
+    border: 1px solid #0056b3 ;
+    border-radius: 15px;
   }
   
   #subjectDetailsTable th {
     background-color: #f2f2f2;
+    border: 1px solid #0056b3 ;
+    border-radius: 15px;
   }
   
   #subjectDetailsList tr:hover {
     background-color: #f2f2f2;
     transition: background-color 0.3s ease;
+    border: 1px solid #0056b3 ;
   }
   
   /* Responsive Design */
@@ -92,11 +165,36 @@
     form {
       padding: 10px;
     }
+
+
+
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      
+      font-size: 16px;
+      font-weight: normal;
+      font-style: italic;
+      color: #999;
+  }
+  input[type="text"]::placeholder {
+      /* Apply the style of <p> tag to the placeholder */
+      font-family: Arial, Helvetica, sans-serif;
+     
+      font-size: 16px;
+      font-weight: normal;
+      font-style: italic;
+      color: #999;
+  }
+   
   
     input[type="text"],
     input[type="number"] {
       padding: 8px;
       margin-bottom: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: lighter;
+      font-style: italic;
+      color: #999; /
     }
   
     button {
@@ -113,3 +211,5 @@
     }
   }
   
+
+ 

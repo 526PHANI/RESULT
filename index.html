@@ -5,15 +5,30 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Enter Your Roll Number</h1>
+  <h1>RESULTS</h1>
   <form id="rollNumberForm">
     <label for="rollNumber">Roll Number:</label>
-    <input type="text" id="rollNumber" name="rollNumber" required>
-    <label for="semesterNumber">Semester Number:</label>
-    <input type="number" id="semesterNumber" name="semesterNumber" required min="1" max="5">
-    <button type="submit">Submit</button>
+    <input type="text" style="border-radius: 10px" id="rollNumber" name="rollNumber" required placeholder="enter roll number">
+  
+
+
+    <label for="semester">Semester:</label>
+    <select id="semesterNumber" name="semester">
+ 
+      <option value="" ></option>
+        <option value="1-1">1-1</option>
+        <option value="1-2">1-2</option>
+        <option value="2-1">2-1</option>
+        <option value="2-2">2-2</option>
+        <option value="3-1">3-1</option>
+    </select>
+    <br >
+    <button type="submit" style="margin-top: 12px">RESULT</button>
   </form>
 
+  <span id="reportCardMessage" class="hidden">REPORT CARD:</span>
+
+ 
   <div id="resultContainer">
     <h2></h2>
     <h2 id="result"></h2>
@@ -29,7 +44,121 @@
         </thead>  
         <tbody id="subjectDetailsList"></tbody>
       </table>
+
+
+
+      
     </div>
+
+
+    
+  </div>
+
+
+
+  <div>
+    <h3 style="  color: #2e65d2;">DESCRIPTION:</h3>
+    <p>
+      This is information is gathered from official JNTU-K website.<br>
+      A student shall be considered to have completed a course successfully and earned the credits if he/she
+secures an acceptable letter grade in the range A+ to E as given below. Letter grade ‘F’ in any course
+implies failure of the student in that course and no credits earned. Absent is also treated as no credits
+earned.<br>
+
+
+    </p>
+
+    <h1>Grade Table</h1>
+    <table id="gradeTable">
+      <thead>
+        <tr>
+          <th>Marks Range Theory (Max - 100)</th>
+          <th>Marks Range Lab (Max - 50)</th>
+          <th>Level</th>
+          <th>Letter Grade</th>
+          <th>Grade Point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="gradeRow">
+          <td>≥ 90</td>
+          <td>≥ 45</td>
+          <td>Outstanding</td>
+          <td>A+</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>≥ 80 to &lt; 89</td>
+          <td>≥ 40 to &lt; 44</td>
+          <td>Excellent</td>
+          <td>A</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>≥ 70 to &lt; 79</td>
+          <td>≥ 35 to &lt; 39</td>
+          <td>Very Good</td>
+          <td>B</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>≥ 60 to &lt; 69</td>
+          <td>≥ 30 to &lt; 34</td>
+          <td>Good</td>
+          <td>C</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>≥ 50 to &lt; 59</td>
+          <td>≥ 25 to &lt; 29</td>
+          <td>Fair</td>
+          <td>D</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>≥ 40 to &lt; 49</td>
+          <td>≥ 20 to &lt; 24</td>
+          <td>Satisfactory</td>
+          <td>E</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>&lt; 40</td>
+          <td>&lt; 20</td>
+          <td>Fail</td>
+          <td>F</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>-</td>
+          <td>Absent</td>
+          <td>AB</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+      </table>  
+      <h3 style="color: #2e65d2"> Computation of SGPA and CGPA</h3>
+      <p>The UGC recommends the following procedure to compute the Semester Grade Point Average
+        (SGPA) and Cumulative Grade Point Average (CGPA):<br>
+        <h4 style="padding-bottom: 1px; margin-bottom: 0;">SGPA:</h4>
+       <p style="margin-top: 0;"> It is the ratio of sum of the product of the number of credits with the
+grade points scored by a student in all the courses taken by a student and the sum of the total
+number of credits of all the courses undergone/registered by a student, i.e.,<br></p>
+<b>SGPA= {sum of (grade * credits) in every subject}/sum of credits for all subjects </b>
+
+          
+        <h4 >CGPA:</h4>
+        The CGPA is calculated in the same manner taking into account all the
+courses/subjects registered by student over all the semesters of a Programme i.e., in all eight
+semesters<br>
+<b> CGPA= {sum of (sgpa in that sem  * credits earned in that sem) }/sum of credits in all semesters </b>
+
+<h3 style="color: #2e65d2; margin-bottom: 0;"> PERCENTAGE:</h3>
+<b style="margin-top: 0;">Percentage = (CGPA – 0.75) x 10</b>
+
+      </p>
+<h2 style="color: red; margin-bottom: 0; ">NOTE:</h2><br>
+<p style="margin-top: 0;">This is website is under development and almost 98% of the website is developed by CHAT GPT and rest 2% is by our team . So if you face any issues or bugs please bring to our notice.</p>
   </div>
 
   <script type="module">
@@ -286,271 +415,7 @@
         }
       ]
     },
-    {
-      "rollNumber": "Htno",
-      "subjects": [
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        },
-        {
-          "subname": "Subname Grade",
-          "grade": "Credits",
-          "credits": null
-        }
-      ]
-    },
+   
     {
       "rollNumber": "20U41A0106",
       "subjects": [
@@ -101996,66 +101861,91 @@ const sem5 = [
 
 
 
+function displaySubjectDetails(student, semester) {
+  const subjectDetailsTable = document.getElementById('subjectDetailsTable');
+  const subjectDetailsList = document.getElementById('subjectDetailsList');
+  subjectDetailsList.innerHTML = ''; // Clear the existing contents of the <tbody>
 
-    // Function to display the subject names and credits for the selected semester
-    function displaySubjectDetails(student, semester) {
-      const subjectDetailsTable = document.getElementById('subjectDetailsTable');
-      const subjectDetailsList = document.getElementById('subjectDetailsList');
-      subjectDetailsList.innerHTML = '';
+  const subjects = student.subjects.filter(subject => subject.semester === semester);
 
-      const subjects = student.subjects.filter(subject => subject.semester === semester);
+  for (const subject of subjects) {
+    const subname = subject.subname;
+    const grade = subject.grade;
 
-      for (const subject of subjects) {
-        const subname = subject.subname;
-        const grade= subject.grade;
-
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${subname}</td><td>${grade}</td>`;
-        subjectDetailsList.appendChild(row);
-      }
-    };
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${subname}</td><td>${grade}</td>`;
+    subjectDetailsList.appendChild(row);
+  }
 
 
+  const hasPassed = subjects.every(subject => subject.grade !== 'F');
+  if (hasPassed) {
+    // Create a new row to display the "Congratulations" message
+    const passRow = document.createElement('tr');
+    passRow.innerHTML = '<td colspan="2">Congratulations🎉! You are passed</td>';
+    subjectDetailsList.appendChild(passRow);
+  }
+}
+
+
+  
 
 
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('rollNumberForm').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const roll = document.getElementById('rollNumber').value;
-        const rollNumber = roll.toUpperCase();
-        const semester = parseInt(document.getElementById('semesterNumber').value);
 
-        // Choose the appropriate semester array based on the user's input
-       
-      let semesterData; // Variable to store the selected semester data
 
-      // Choose the appropriate semester array based on the user's input
-      switch (semester) {
-        case 1:
-          semesterData = sem1;
-          break;
-        case 2:
-          semesterData = sem2;
-          break;
-        case 3:
-          semesterData = sem3;
-          break;
-        case 4:
-          semesterData = sem4;
-          break;
-        case 5:
-          semesterData = sem5;
-          break;
-        default:
-          document.getElementById('result').textContent = 'Invalid semester number.';
-          document.getElementById('resultContainer').style.display = 'block';
-          return;
-      }
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('rollNumberForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const roll = document.getElementById('rollNumber').value;
+    const rollNumber = roll.toUpperCase();
+
+
+
+    const reportCardMessage = document.getElementById('reportCardMessage');
+    reportCardMessage.textContent = 'Report Card';
+    reportCardMessage.classList.remove('hidden'); // Remove the "hidden" class to show the message
+    reportCardMessage.style.color = '#2e65d2'; 
+  
+
+    // Get the selected semester from the <select> element
+    const semesterSelect = document.getElementById('semesterNumber'); // <-- Correct ID here
+    const semester = semesterSelect.value;
+    
+
+    // Choose the appropriate semester array based on the user's input
+    let semesterData; // Variable to store the selected semester data
+
+    // Choose the appropriate semester array based on the user's input
+    switch (semester) {
+      case "1-1":
+        semesterData = sem1;
+        break;
+      case "1-2":
+        semesterData = sem2;
+        break;
+      case "2-1":
+        semesterData = sem3;
+        break;
+      case "2-2":
+        semesterData = sem4;
+        break;
+      case "3-1":
+        semesterData = sem5;
+        break;
+      default:
+        document.getElementById('result').textContent = 'Invalid semester number.';
+        document.getElementById('resultContainer').style.display = 'block';
+        return;
+    }
 
         // Find the student with the entered roll number in the chosen semester data
         const student = semesterData.find(s => s.rollNumber === rollNumber);
-
+          
+ // Display the result
+       
+        
+   
         // If the student is not found, display an error message
         if (!student) {
           document.getElementById('result').textContent = 'Student not found with the entered roll number.';
@@ -102065,15 +101955,27 @@ const sem5 = [
 
         // Calculate the result for the found student and semester
         const result = await calculateResult(student.subjects);
+        const percentage = calculatePercentage(result);
 
-        // Display the result
-        if (result === "Failed") {
-          document.getElementById('result').textContent = `Result for Roll Number ${rollNumber}, Semester ${semester}: Failed`;
-          displaySubjectDetails(student);
-        } else {
-          document.getElementById('result').textContent = `Result for Roll Number ${rollNumber}, Semester ${semester}: ${result.toFixed(2)}`;
-          displaySubjectDetails(student);
+        function calculatePercentage(gpa) {
+          return (gpa - 0.75) * 10;
         }
+
+
+
+         // Display subject details first
+    displaySubjectDetails(student);
+
+
+
+      // Display the result with HTML line breaks
+      if (result === "Failed") {
+        document.getElementById('result').innerHTML = `Roll Number: ${rollNumber} <br> Semester: ${semester}<br>Failed`;
+      } else {
+        document.getElementById('result').innerHTML = `Roll Number&nbsp: ${rollNumber}<br>  Semester&nbsp&nbsp&nbsp&nbsp&nbsp : ${semester}<br> GPA&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: ${result.toFixed(2)} <br>Percentage&nbsp&nbsp : ${percentage.toFixed(2)}%`;
+      }
+
+      
 
         document.getElementById('resultContainer').style.display = 'block';
       });
@@ -102122,6 +102024,7 @@ const sem5 = [
           }
           if (hasFailed) {
             return "Failed"; // If the student has failed in any subject, return "Failed"
+          //  return "FAILED!  Don't worry, better luck next time";
           }
         }
         if (totalCredits === 0) {
