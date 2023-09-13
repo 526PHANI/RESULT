@@ -84,8 +84,8 @@
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 7px 9px rgba(0, 0, 0, 0.1);
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 30%;
+    margin-right: 30%;
     border : 1px solid #2e65d2;
   }
   
@@ -125,7 +125,7 @@
     padding: 20px;
     border-radius: 10px;
    
-    box-shadow: 0 7px 9px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 9px 11px rgba(0, 0, 0, 0.1);
   }
   
   #resultContainer h2 {
@@ -136,6 +136,7 @@
     border-collapse: collapse;
     width: 95%;
     margin-top: 20px;
+    border: 2px solid #2e65d2;
   }
   
   #subjectDetailsTable th,
@@ -145,13 +146,15 @@
     border-bottom: 1px solid #ddd;
     margin: 3px;
     border: 1px solid #0056b3 ;
-    border-radius: 15px;
+    border-radius: 15px ;
   }
   
   #subjectDetailsTable th {
     background-color: #f2f2f2;
     border: 1px solid #0056b3 ;
     border-radius: 15px;
+    color: #2e65d2;
+    font-weight: bold;
   }
   
   #subjectDetailsList tr:hover {

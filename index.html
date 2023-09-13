@@ -3,6 +3,29 @@
 <head>
   <title>PROJECT_P</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+
+
+  <script>
+    // Function to increment the visit count
+    function incrementVisitCount() {
+      // Check if localStorage is supported
+      if (typeof(Storage) !== "undefined") {
+        // Check if visitCount is already stored
+        if (localStorage.visitCount) {
+          localStorage.visitCount = parseInt(localStorage.visitCount) + 1;
+        } else {
+          localStorage.visitCount = 1;
+        }
+      }
+    }
+
+    // Call the incrementVisitCount function when the page loads
+    window.onload = function() {
+      incrementVisitCount();
+    };
+  </script>
+
+
 </head>
 <body>
   <h1>RESULTS</h1>
@@ -21,6 +44,7 @@
         <option value="2-1">2-1</option>
         <option value="2-2">2-2</option>
         <option value="3-1">3-1</option>
+        <option value="3-2">3-2</option>
     </select>
     <br >
     <button type="submit" style="margin-top: 12px">RESULT</button>
@@ -54,7 +78,8 @@
     
   </div>
 
-<h3>SUPPLY Results are not updated</h3>
+<h3 style="color: #2e65d2;">SUPPLY Results are not updated</h3>
+<hr style="color: #2e65d2;;">
 
   <div>
     <h3 style="  color: #2e65d2;">DESCRIPTION:</h3>
@@ -158,11 +183,20 @@ semesters<br>
 
       </p>
 <h2 style="color: red; margin-bottom: 0; ">NOTE:</h2><br>
-<p style="margin-top: 0;">"This website is under development, and almost 98% of the website is developed by ChatGPT, and the rest 2% is by our team. So, if you face any issues or bugs, please bring them to our notice."</p>
+<p style="margin-top: 0;">"This website is under development so, if you face any issues or bugs, please bring them to notice."</p>
   </div>
   <br>
   <br>
-  
+  <br>
+  <h2 style="color: red; margin-bottom: 0; ">HELP & SUPPORT</h2>
+ 
+  <h2  style="color: #2e65d2; margin-bottom: 0;">Give us a Star on GitHub!</h2>
+  <p style="margin-top: 0;">If you find our project helpful and valuable, please consider giving it a ⭐️ on GitHub. Your support encourages our team to continue developing projects like this one.</p>
+  <a href="https://github.com/526PHANI/RESULT" target="_blank"><button>Star this Project</button></a>
+  <p>Thank you for your support! 🚀</p>
+
+  <br>
+  <p>Total Visits: <span id="visitCount">0</span></p>
 
   <script type="module">
     // Sample data for semester 1
@@ -101860,7 +101894,7 @@ const sem5 = [
   }
 ];
 
-
+const sem6=[];
 
 
 
@@ -101885,7 +101919,7 @@ function displaySubjectDetails(student, semester) {
   if (hasPassed) {
     // Create a new row to display the "Congratulations" message
     const passRow = document.createElement('tr');
-    passRow.innerHTML = '<td colspan="2">Congratulations🎉! You are passed</td>';
+    passRow.innerHTML = '<td style="color: #2e65d2; font-weight: bold; text-align: center" colspan="2">Congratulations🎉! You are passed</td>';
     subjectDetailsList.appendChild(passRow);
   }
 }
@@ -101902,6 +101936,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const roll = document.getElementById('rollNumber').value;
     const rollNumber = roll.toUpperCase();
+
 
 
 
@@ -101935,6 +101970,9 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case "3-1":
         semesterData = sem5;
+        break;
+      case "3-2":
+        semesterData = sem6;
         break;
       default:
         document.getElementById('result').textContent = 'Invalid semester number.';
@@ -102038,6 +102076,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return result;
       }
     });
+
+
+
+
+
+
+
+
+    //test code 
+
+   
+  
+    // Update the visitCount element with the stored visit count
+    if (localStorage.visitCount) {
+      document.getElementById("visitCount").textContent = localStorage.visitCount;
+    }
+ 
   </script>
 </body>
 </html>
